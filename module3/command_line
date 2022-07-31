@@ -1,0 +1,13 @@
+# 运行httpserver容器
+# docker run -itd -p 8080:8080 gbling/homework:httpserver
+
+----
+
+# 请求httpserver服务
+# curl http://127.0.0.1:8080/healthz
+
+----
+
+# 进入httpserver容器查看容器IP
+# PID=$(docker inspect --format {{.State.Pid}} `docker ps  | grep '/bin/server' | awk '{print $1}'`)
+# nsenter -n -t ${PID} ip addr show
